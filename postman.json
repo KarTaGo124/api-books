@@ -1,0 +1,127 @@
+{
+    "info": {
+        "name": "Books API",
+        "description": "Collection to test the Books API",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Get All Books",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "http://{{IP}}:8001/books",
+                    "protocol": "http",
+                    "host": ["{{IP}}"],
+                    "port": "8001",
+                    "path": ["books"]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Get Book by ID",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "http://{{IP}}:8001/books/:id",
+                    "protocol": "http",
+                    "host": ["{{IP}}"],
+                    "port": "8001",
+                    "path": ["books", ":id"],
+                    "variable": [
+                        {
+                            "key": "id",
+                            "value": "1"
+                        }
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Add New Book",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"title\": \"New Book\",\n    \"author\": \"Author Name\",\n    \"year\": 2024\n}"
+                },
+                "url": {
+                    "raw": "http://{{IP}}:8001/books",
+                    "protocol": "http",
+                    "host": ["{{IP}}"],
+                    "port": "8001",
+                    "path": ["books"]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Update Book",
+            "request": {
+                "method": "PUT",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"title\": \"Updated Book\",\n    \"author\": \"Updated Author\",\n    \"year\": 2025\n}"
+                },
+                "url": {
+                    "raw": "http://{{IP}}:8001/books/:id",
+                    "protocol": "http",
+                    "host": ["{{IP}}"],
+                    "port": "8001",
+                    "path": ["books", ":id"],
+                    "variable": [
+                        {
+                            "key": "id",
+                            "value": "1"
+                        }
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Delete Book",
+            "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                    "raw": "http://{{IP}}:8001/books/:id",
+                    "protocol": "http",
+                    "host": ["{{IP}}"],
+                    "port": "8001",
+                    "path": ["books", ":id"],
+                    "variable": [
+                        {
+                            "key": "id",
+                            "value": "1"
+                        }
+                    ]
+                }
+            },
+            "response": []
+        }
+    ],
+    "variable": [
+        {
+            "key": "IP",
+            "value": "127.0.0.1", 
+            "type": "string"
+        }
+    ]
+}
